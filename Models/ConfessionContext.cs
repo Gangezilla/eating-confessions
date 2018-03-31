@@ -9,7 +9,7 @@ namespace eating_confessions.Models
 
         }
 
-        public DbSet<ConfessionItem> ConfessionItems {get; set;}
+        public DbSet<Confession> Confessions {get; set;}
     }
 }
 
