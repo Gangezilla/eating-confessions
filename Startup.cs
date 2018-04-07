@@ -23,11 +23,14 @@ namespace eating_confessions
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+        //   services.AddDbContext<ApplicationDbContext>(options =>
+        // options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ConfessionContext>(opt => opt.UseInMemoryDatabase("Confessions"));
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // so here we're defining the middleware that gets used.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -36,6 +39,7 @@ namespace eating_confessions
             }
             else
             {
+              // having the exception handler here means that any issues that get thrown initially, or any issues that are thrown later on down the line will eventually end up here.
                 app.UseExceptionHandler("/Error");
             }
 

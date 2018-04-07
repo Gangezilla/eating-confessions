@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace eating_confessions.Models
 {
-    [Route("api/Confession")]
+    [Route("api/confession")]
     public class ConfessionController : Controller
     {
         private readonly ConfessionContext _context;
@@ -23,9 +23,14 @@ namespace eating_confessions.Models
             }
         }
 
-        [HttpGet]
-        public IEnumerable<Confession> GetAll()
+        [HttpGet()]
+        //api/confession?startFrom=20/
+        // public IActionResult Get([FromQuery(Name = "page")] string page)
+        public IEnumerable<Confession> PaginateThroughConfessions()
         {
+            // string page = HttpContext.Request.Query["page"].ToString();
+            string StartFrom = HttpContext.Request.Query["startFrom"];
+            int StartFromInt = System.Convert.ToInt32(StartFrom);
             return _context.Confessions.ToList();
         }
 
@@ -70,20 +75,6 @@ namespace eating_confessions.Models
             newConfession.Content = confession.Content;
 
             _context.Confessions.Update(newConfession);
-            _context.SaveChanges();
-            return new NoContentResult();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
-        {
-            var confession = _context.Confessions.FirstOrDefault(t => t.Id == id);
-            if (confession == null)
-            {
-                return NotFound();
-            }
-
-            _context.Confessions.Remove(confession);
             _context.SaveChanges();
             return new NoContentResult();
         }

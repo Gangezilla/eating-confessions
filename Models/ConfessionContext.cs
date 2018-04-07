@@ -12,19 +12,3 @@ namespace eating_confessions.Models
         public DbSet<Confession> Confessions {get; set;}
     }
 }
-
-// using Microsoft.EntityFrameworkCore;
-
-// namespace TodoApi.Models
-// {
-//     public class TodoContext : DbContext
-//     {
-//         public TodoContext(DbContextOptions<TodoContext> options)
-//             : base(options)
-//         {
-//         }
-
-//         public DbSet<TodoItem> TodoItems { get; set; }
-
-//     }
-// }

@@ -1,3 +1,4 @@
 - Simple server, no logins or anything like that.
 - Serves up a React front end where people can post stream of consciousness style about things they've eaten but feel a bit guilty about.
 - server basic, can post a new confession, can retrieve paginated results
+- maybe have the ability to respond to a confession in a certain way, maybe github style with 5 emojis.
