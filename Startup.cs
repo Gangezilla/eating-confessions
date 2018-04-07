@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using eating_confessions.Models;
 
 namespace eating_confessions
@@ -23,9 +24,14 @@ namespace eating_confessions
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-        //   services.AddDbContext<ApplicationDbContext>(options =>
-        // options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ConfessionContext>(opt => opt.UseInMemoryDatabase("Confessions"));
+            var connectionString = Configuration.GetConnectionString("ConfessionContext");
+            // var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            // services.AddEntityFrameworkNpgsql().AddDbContext<ConfessionContext>(options => options.UseNpgsql(connectionString));
+            services.AddDbContext<ConfessionContext>(options => {
+                options.UseNpgsql(
+                    connectionString, b => b.MigrationsAssembly("eating-confessions")
+                );
+            });
             services.AddMvc();
         }
 
