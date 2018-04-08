@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "3c7fae3a69f1ef710d17d64dc47ea68a3dd7b6fe"
+    "signature": "12519d4f3aeee6eef333402c33ff9dba6df24186"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.1"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.1",
+          "PagedList.Mvc": "4.5.0"
         },
         "runtime": {
           "eating-confessions.dll": {}
@@ -2530,6 +2531,25 @@
         },
         "compile": {
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        }
+      },
+      "PagedList/1.17.0": {
+        "runtime": {
+          "lib/net40/PagedList.dll": {}
+        },
+        "compile": {
+          "lib/net40/PagedList.dll": {}
+        }
+      },
+      "PagedList.Mvc/4.5.0": {
+        "dependencies": {
+          "PagedList": "1.17.0"
+        },
+        "runtime": {
+          "lib/net40/PagedList.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/net40/PagedList.Mvc.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -5505,6 +5525,20 @@
       "sha512": "sha512-WCkN68c8q+USG+Ot1MmBDH+9DUo5dk7UB0QDMiwCYhrH7ZoFLKFGGNzJ8C3LTR1DvB1LW9BOxKeznnZznKiCTA==",
       "path": "nuget.frameworks/4.0.0",
       "hashPath": "nuget.frameworks.4.0.0.nupkg.sha512"
+    },
+    "PagedList/1.17.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ou6F3WKXh49hOo0TxWM+SkIGuKllYPuPPvnSYOlQ1sTrtuEyuDUhYbSJd5Sdb06i/sWUJZTjiUecEs3Ht/Hx3g==",
+      "path": "pagedlist/1.17.0",
+      "hashPath": "pagedlist.1.17.0.nupkg.sha512"
+    },
+    "PagedList.Mvc/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0M4qW2g4a9cwG8ozIKUnJheCrm5GpFTceqUl63AXWaAVnTgk+TysZYUOGMsBRuzid8aF+/E8b0bXM6+90jiEw==",
+      "path": "pagedlist.mvc/4.5.0",
+      "hashPath": "pagedlist.mvc.4.5.0.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

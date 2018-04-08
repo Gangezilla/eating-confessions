@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using eating_confessions.Models;
 using System.Linq;
+using PagedList;
+using System;
 
 namespace eating_confessions.Models
 {
@@ -16,6 +18,7 @@ namespace eating_confessions.Models
             if(_context.Confessions.Count() == 0)
             {
                 _context.Confessions.Add(new Confession {
+                    Id = 1,
                     Title = "Confession1",
                     Content = "Boy oh boy" 
                 });
@@ -24,14 +27,17 @@ namespace eating_confessions.Models
         }
 
         [HttpGet()]
-        //api/confession?startFrom=20/
-        // public IActionResult Get([FromQuery(Name = "page")] string page)
         public IEnumerable<Confession> PaginateThroughConfessions()
         {
-            // string page = HttpContext.Request.Query["page"].ToString();
-            string StartFrom = HttpContext.Request.Query["startFrom"];
-            int StartFromInt = System.Convert.ToInt32(StartFrom);
-            return _context.Confessions.ToList();
+            string page = HttpContext.Request.Query["page"].ToString();
+            int? pageInt = Int32.TryParse(page, out var tempVal) ?
+            tempVal : 
+            (int?)null;
+            int pageNumber = (pageInt ?? 1);
+            int pageSize = 20;
+            return _context.Confessions
+                .OrderByDescending(confession => confession.TimePosted)
+                .ToPagedList(pageNumber, pageSize);
         }
 
         [HttpGet("{id}", Name="GetConfession")]

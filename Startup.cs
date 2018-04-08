@@ -25,8 +25,6 @@ namespace eating_confessions
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("ConfessionContext");
-            // var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
-            // services.AddEntityFrameworkNpgsql().AddDbContext<ConfessionContext>(options => options.UseNpgsql(connectionString));
             services.AddDbContext<ConfessionContext>(options => {
                 options.UseNpgsql(
                     connectionString, b => b.MigrationsAssembly("eating-confessions")
@@ -35,8 +33,6 @@ namespace eating_confessions
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        // so here we're defining the middleware that gets used.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -45,7 +41,6 @@ namespace eating_confessions
             }
             else
             {
-              // having the exception handler here means that any issues that get thrown initially, or any issues that are thrown later on down the line will eventually end up here.
                 app.UseExceptionHandler("/Error");
             }
 
