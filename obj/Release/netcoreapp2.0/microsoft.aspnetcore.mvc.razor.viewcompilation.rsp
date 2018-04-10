@@ -1,0 +1,12 @@
+/Users/scottgangemi/Documents/sourcecode/eating-confessions
+--output-path=obj/Release/netcoreapp2.0/
+--application-name=eating-confessions
+--content-root=/Users/scottgangemi/Documents/sourcecode/eating-confessions
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/About.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/Contact.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/Error.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/Index.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/_Layout.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/_ValidationScriptsPartial.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/_ViewImports.cshtml
+--file=/Users/scottgangemi/Documents/sourcecode/eating-confessions/Pages/_ViewStart.cshtml
