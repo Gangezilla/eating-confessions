@@ -34,7 +34,7 @@ namespace eating_confessions.Models
             tempVal : 
             (int?)null;
             int pageNumber = (pageInt ?? 1);
-            int pageSize = 20;
+            int pageSize = 5;
             return _context.Confessions
                 .OrderByDescending(confession => confession.TimePosted)
                 .ToPagedList(pageNumber, pageSize);
